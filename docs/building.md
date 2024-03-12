@@ -9,8 +9,17 @@ You only need to build Weave Net if you want to work on the Weave Net codebase
 Apart from the `weave` shell script, Weave Net is delivered as a set of
 container images.  There is no distribution-specific packaging, so in
 principle it shouldn't matter which Linux distribution you build
-under.  But naturally, Docker is a prerequisite (version 1.6.0 or
+under.  But naturally, Docker is a prerequisite (version 1.12.0 or
 later).
+
+    **Note:** The following information is now obsolete. Weave Net is
+    now maintained by the community, and one of the first things that
+    changed in this model was the build process. The new process is
+    still being fine-tuned, and will be documented here once done. In
+    the meantime, you can look at [https://github.com/rajch/weave/blob/master/reweave/BUILDING.md](https://github.com/rajch/weave/blob/master/reweave/BUILDING.md) 
+    to see the current state of the process.
+
+    The current documentation is being kept in for now, until it can be replaced.
 
 The only way to build is by using the the build container; the
 `Makefile` is setup to make this transparent.  This method is

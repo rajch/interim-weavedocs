@@ -6,16 +6,16 @@ search_type: Documentation
 
 
 Ensure you are running Linux (kernel 3.8 or later) and have Docker
-(version 1.10.0 or later) installed.
+(version 1.12.0 or later) installed.
 
 Install Weave Net by running the following:
 
-    sudo curl -L git.io/weave -o /usr/local/bin/weave
+    sudo curl -L https://reweave.azurewebsites.net/get-weave -o /usr/local/bin/weave
     sudo chmod a+x /usr/local/bin/weave
 
-If you are on OSX and you are using Docker Machine ensure that a VM is running and configured 
+~~If you are on OSX and you are using Docker Machine ensure that a VM is running and configured 
 before downloading Weave Net. To set up a VM see [the Docker Machine
-documentation](https://docs.docker.com/installation/mac/#from-your-shell) or refer to ["Part 1: Launching Weave Net with Docker Machine"](/guides/part-1-launching-weave-net-with-docker-machine/).
+documentation](https://docs.docker.com/installation/mac/#from-your-shell) or refer to ["Part 1: Launching Weave Net with Docker Machine"](/guides/part-1-launching-weave-net-with-docker-machine/).~~
 
 After your VM is setup with Docker Machine, Weave Net can be launched directly from the OSX host. Weave Net respects the environment variable `DOCKER_HOST`, so that you can run and control a Weave Network locally on a remote host. See [Using The Weave Docker API Proxy]({{ '/tasks/weave-docker-api/using-proxy' | relative_url }}).
 
@@ -46,10 +46,12 @@ To disable this check, run the following before launching Weave Net:
 
     export CHECKPOINT_DISABLE=1
 
+**Note:** Weaveworks does not maintain these servers any more. Weave Net will make the call and silently fail. This will not affect normal operations. Still, it is recommended to set the `CHECKPOINT_DISABLE` variable as shown above. This feature will be removed from the community-supported Weave Net in the near future.
+
 ### Guides for Specific Platforms
 
-Amazon ECS users see [here](https://www.weave.works/docs/scope/latest/ami/)
-for the latest Weave AMIs.
+~~Amazon ECS users see [here](https://www.weave.works/docs/scope/latest/ami/)
+for the latest Weave AMIs.~~
 
 If you're on Amazon EC2, the standard installation instructions at the
 top of this page, provide the simplest setup and the most flexibility.
@@ -63,7 +65,7 @@ To make encryption in fast datapath work on Google Cloud Platform, see
 **See Also** 
 
  * [Launching Weave Net]({{ '/install/using-weave' | relative_url }})
- * [Tutorials](https://www.weave.works/docs/tutorials/)
+ * ~~[Tutorials](https://www.weave.works/docs/tutorials/)~~
  * [Features]({{ '/overview/features' | relative_url }})
  * [Troubleshooting]({{ '/troubleshooting' | relative_url }})
  * [Building]({{ '/building' | relative_url }})

@@ -30,11 +30,13 @@ The following topics are discussed:
 blocked by your firewall: TCP 6783 and UDP 6783/6784.
 For more details, see the [FAQ]({{ '/faq#ports' | relative_url }}).*
 
-[Weave Net](https://github.com/weaveworks/weave/releases) can be installed onto your CNI-enabled Kubernetes cluster with a single command:
+[Weave Net](https://github.com/rajch/weave/releases) can be installed onto your CNI-enabled Kubernetes cluster with a single command:
 
 ```
-$ kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+$ kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml
 ```
+
+Replace the `v1.29` with the version of Kubernetes running on your cluster.
 
 **Important:** this configuration won't enable encryption by default. If your data plane traffic isn't secured that could allow malicious actors to access your pod network. Read on to see the alternatives.
 
@@ -131,7 +133,7 @@ You can reduce the chance of eviction by changing the DaemonSet to
 have a much bigger request, and a limit of the same value.
 
 This causes Kubernetes to apply a ["guaranteed" rather than a
-"burstable" policy](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/resource-qos.md).
+"burstable" policy](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/).
 However a similar request for disk space can not
 be made, and so please be aware of this issue and monitor your
 resources to ensure that they stay below 100%.
@@ -179,7 +181,7 @@ labels. For more information on configuring network policies in
 Kubernetes see the
 [walkthrough](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/)
 and the [NetworkPolicy API object
-definition](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.11/#networkpolicy-v1-networking-k8s-io)
+definition](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#networkpolicy-v1-networking-k8s-io)
 
 **Note:** as of version 1.9 of Weave Net, the Network Policy
   Controller allows all multicast traffic. Since a single multicast
@@ -348,8 +350,8 @@ UDP connection from 10.32.0.7:56648 to 10.32.0.11:80 blocked by Weave NPC.
 
 ### <a name="key-points"></a> Things to watch out for
 
-- Weave Net does not work on hosts running iptables 1.8 or above, only with 1.6.
-  Track this via issue [#3465](https://github.com/weaveworks/weave/issues/3465)
+- ~~Weave Net does not work on hosts running iptables 1.8 or above, only with 1.6.
+  Track this via issue [#3465](https://github.com/weaveworks/weave/issues/3465)~~
 - Don't turn on `--masquerade-all` on kube-proxy: this will change the
   source address of every pod-to-pod conversation which will make it
   impossible to correctly enforce network policies that restrict which
@@ -364,55 +366,57 @@ UDP connection from 10.32.0.7:56648 to 10.32.0.11:80 blocked by Weave NPC.
 - Weave Net can be run on minikube v0.28 or later with the default CNI config shipped with minikube
   being disabled. See [#3124](https://github.com/weaveworks/weave/issues/3124#issuecomment-397820940)
   for more details.
-- Weave Net has a problem with containerd versions 1.6.0 through 1.6.4. See [Troubleshooting FailedCreatePodSandBox errors](#failedcreatepodsandbox) below.
+- ~~Weave Net has a problem with containerd versions 1.6.0 through 1.6.4. See [Troubleshooting FailedCreatePodSandBox errors](#failedcreatepodsandbox) below.~~
 
-### <a name="failedcreatepodsandbox"></a> Troubleshooting FailedCreatePodSandBox errors
+The following documents a problem in Weave Net before version 2.8.2. The problem does not exist any longer. The documentation is being kept as is, for now.
 
-If your Kubernetes cluster uses the `containerd` runtime (versions 1.6.0 through 1.6.4), Weave Net will not be able to allocate IP addresses to pods. Your pods, except the ones that use HostNetworking, will be stuck at `ContainerCreating` status.
-
-You can examine any pod so affected  by running `kubectl describe`, for example:
-
-```
-$ kubectl describe pod -n kube-system coredns-78fcd69978-dbxs9
-```
-
-The events section will show repeated errors like the following:
-
-```
-  Warning  FailedCreatePodSandBox  3m6s                  kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "09a23f79c96333b9f54e12df54e817837c8021cbaa32bdfeefbe2a1fb215d9ef": plugin type="weave-net" name="weave" failed (add): unable to allocate IP address: Post "http://127.0.0.1:6784/ip/09a23f79c96333b9f54e12df54e817837c8021cbaa32bdfeefbe2a1fb215d9ef": dial tcp 127.0.0.1:6784: connect: connection refused
-```
-
-You can verify that you are running an affected version of containerd by using the following:
-
-```
-$ kubectl get nodes -o wide
-
-NAME     STATUS   ROLES                  AGE   VERSION    INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION    CONTAINER-RUNTIME
-host-1   Ready    control-plane,master   13m   v1.22.10   172.21.107.129   <none>        Debian GNU/Linux 11 (bullseye)   5.10.0-14-amd64   containerd://1.6.4
-```
-
-The last column shows the container runtime and version.
-
-Alternatively, you can run:
-
-```
-$ containerd -v
-containerd containerd.io 1.6.4 212e8b6fa2f44b9c21b2798135fc6fb7c53efc16
-```
-
-The problem can be solved by upgrading containerd to v1.6.5 or above. For example, on Debian Linux, using the docker official repositories, you can use:
-
-```
-sudo apt install containerd.io=1.6.6-1
-```
-
-The problem occurs because of a behaviour change in cni v1.1.0, which caused a regression issue in Weave. It was corrected in cni v1.1.1. Containerd 1.6.5 onwards uses cni 1.1.1 and above. 
+>  ### <a name="failedcreatepodsandbox"></a> Troubleshooting FailedCreatePodSandBox errors
+>
+>  If your Kubernetes cluster uses the `containerd` runtime (versions 1.6.0 through 1.6.4), Weave Net will not be able to allocate IP addresses to pods. Your pods, except the ones that use HostNetworking, will be stuck at `ContainerCreating` status.
+>
+>  You can examine any pod so affected  by running `kubectl describe`, for example:
+>
+>  ```
+>  $ kubectl describe pod -n kube-system coredns-78fcd69978-dbxs9
+>  ```
+>
+>  The events section will show repeated errors like the following:
+>
+>  ```
+>    Warning  FailedCreatePodSandBox  3m6s                  kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "09a23f79c96333b9f54e12df54e817837c8021cbaa32bdfeefbe2a1fb215d9ef": plugin type="weave-net" name="weave" failed (add): unable to allocate IP address: Post "http://127.0.0.1:6784/ip/09a23f79c96333b9f54e12df54e817837c8021cbaa32bdfeefbe2a1fb215d9ef": dial tcp 127.0.0.1:6784: connect: connection refused
+>  ```
+>
+>  You can verify that you are running an affected version of containerd by using the following:
+>
+>  ```
+>  $ kubectl get nodes -o wide
+>
+>  NAME     STATUS   ROLES                  AGE   VERSION    INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION    CONTAINER-RUNTIME
+>  host-1   Ready    control-plane,master   13m   v1.22.10   172.21.107.129   <none>        Debian GNU/Linux 11 (bullseye)   5.10.0-14-amd64   containerd://1.6.4
+>  ```
+>
+>  The last column shows the container runtime and version.
+>
+>  Alternatively, you can run:
+>
+>  ```
+>  $ containerd -v
+>  containerd containerd.io 1.6.4 212e8b6fa2f44b9c21b2798135fc6fb7c53efc16
+>  ```
+>
+>  The problem can be solved by upgrading containerd to v1.6.5 or above. For example, on Debian Linux, using the docker official repositories, you can use:
+>
+>  ```
+>  sudo apt install containerd.io=1.6.6-1
+>  ```
+>
+>  The problem occurs because of a behaviour change in cni v1.1.0, which caused a regression issue in Weave. It was corrected in cni v1.1.1. Containerd 1.6.5 onwards uses cni 1.1.1 and above. 
 
 ## <a name="configuration-options"></a> Changing Configuration Options
 
 #### Manually editing the YAML file
 
-You can manually edit the YAML file downloaded from our [releases page](https://github.com/weaveworks/weave/releases), 
+You can manually edit the YAML file downloaded from our [releases page](https://github.com/rajch/weave/releases), 
 
 For example,
 - additional arguments may be supplied to the Weave router process by adding them to the `command:` array in the YAML file,
@@ -461,7 +465,7 @@ traffic between peers.
 * `NO_MASQ_LOCAL` - set to 0 to disable preserving the client source IP address when
   accessing Service annotated with `service.spec.externalTrafficPolicy=Local`.
   This feature works only with Weave IPAM (default).
-* `IPTABLES_BACKEND` - set to `nft` to use `nftables` backend for `iptables` (default is `iptables`)
+* `IPTABLES_BACKEND` - set to `nft` to use `nftables` backend for `iptables` (default is `iptables-legacy`)
 
 ## <a name="securing-the-setup"></a> Securing the Setup
 

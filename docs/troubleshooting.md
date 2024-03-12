@@ -24,9 +24,9 @@ Check the version of Weave Net you are running using:
     weave version
 
 If it is not the latest version, as shown in the list of
-[releases](https://github.com/weaveworks/weave/releases), then it is
+[releases](https://github.com/rajch/weave/releases), then it is
 recommended you upgrade using the
-[installation instructions](https://github.com/weaveworks/weave#installation).
+[installation instructions]({{ '/install/installing-weave' | relative_url }}).
 
 To check the Weave Net container logs:
 
@@ -336,4 +336,4 @@ and the container image versions as git hashes.
  * [Troubleshooting the Kubernetes Addon]({{ '/kubernetes/kube-addon#troubleshooting' | relative_url }})
  * [Troubleshooting IPAM]({{ '/tasks/ipam/troubleshooting-ipam' | relative_url }})
  * [Troubleshooting the Proxy]({{ '/tasks/weave-docker-api/using-proxy' | relative_url }})
- * [Weave Net monitoring setup in Kubernetes using kube-prometheus](https://github.com/weaveworks/weave/blob/master/site/tasks/manage/metrics.md#weave-net-monitoring-setup-in-kubernetes-using-kube-prometheus)
+ * [Weave Net monitoring setup in Kubernetes using kube-prometheus]({{ '/tasks/manage/metrics#weave-net-monitoring-setup-in-kubernetes-using-kube-prometheus' | relative_url }})

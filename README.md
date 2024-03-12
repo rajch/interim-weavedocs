@@ -38,3 +38,9 @@ Interim documentation for the ReWeave fork of Weave Net
     git mv $i.md $i/index.md; 
   done
   ```
+* Edited the following files by hand:
+    * docs/kubernetes/kube-addon.md
+    * docs/install/installing-weave.md
+    * docs/concepts/encryption-implementation.md (Not finished)
+    * docs/troubleshooting.md
+    * docs/building.md
