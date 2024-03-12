@@ -31,13 +31,7 @@ Interim documentation for the ReWeave fork of Weave Net
   url: "https://rajch.github.io" 
   ```
 * Moved the file `weave-net-overview.png` to the `overview` directory
-* Moved the section title .md files into the respective section directories using the following script:
-
-  ```bash
-  for i in tasks overview operational-guide install concepts kubernetes; do
-    git mv $i.md $i/index.md; 
-  done
-  ```
+* Moved the section title .md files into the respective section directories using the accopanying `restructure.sh` script
 * Edited the following files by hand:
     * docs/kubernetes/kube-addon.md
     * docs/install/installing-weave.md
