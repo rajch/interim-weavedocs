@@ -19,7 +19,7 @@ Weave Net creates a new Layer 2 network using Linux kernel features; one daemon 
 
 Weave Net simplifies setting up a container network. Because containers on a Weave network use standard port numbers, (for example MySQL’s default is port 3306), managing microservices is straightforward. Every container can find the IP of any other container using a simple DNS query on the container's name, and it can also communicate directly without NAT, without using port mappings or complicated ambassador linking.  And best of all deploying a Weave container network requires zero changes to your application’s code. 
 
-![Weave Net Encapsulation]({{ 'weave-net-overview.png' | absolutepath }})
+![Weave Net Encapsulation](weave-net-overview.png)
 
 ### Service Discovery
 
@@ -30,7 +30,7 @@ Weave Net implements service discovery by providing a fast "micro DNS" server at
 All other Docker networking plugins, including Docker's own "Overlay" driver, require that you set up Docker with a cluster store – a central database like Consul or Zookeeper – before you can even use them. Besides being difficult to set up, maintain and manage, every Docker host must also be in constant contact with the cluster store: if you lose the connection, even temporarily, then you cannot start or stop any containers.
 
 Weave Net is bundled with a Docker Network plugin that doesn't require an external cluster store. You can get started right away and you can start and stop containers even when there are network connectivity problems.  
-For information about the Weave Docker Plugin, see [How The Weave Network Plugin Works]({{ 'install/plugin/plugin-how-it-works' | absolutepath }}).
+For information about the Weave Docker Plugin, see [How The Weave Network Plugin Works]({{ '/install/plugin/plugin-how-it-works' | relative_url }}).
 
 ### Operates in Partially Connected Networks
 
@@ -40,7 +40,7 @@ Weave Net can forward traffic between nodes, and it works even if the mesh netwo
 
 Weave Net automatically chooses the fastest path between two hosts, offering near native throughput and latency, all without your intervention.  
 
-See [How Fast Datapath Works]({{ 'tasks/manage/fastdp' | absolutepath }}) for more information.
+See [How Fast Datapath Works]({{ '/tasks/manage/fastdp' | relative_url }}) for more information.
 
 ### Network Operations Friendly
 
@@ -63,7 +63,7 @@ With Weave Net, deploy your applications - whether peer-to-peer file sharing, vo
 Weave Net is a good choice if you want one tool for everything.  For example: In addition to Docker plugins, you can also use Weave as a Kubernetes plugin.  You can also use Weave with Amazon ECS or with Mesos and Marathon.  
 Refer to our Getting Started and Integration Guides for more information.
 
-For a complete list and description of Weave Net’s current feature set see, [Weave Net Features]({{ 'overview/features' | absolutepath }}).
+For a complete list and description of Weave Net’s current feature set see, [Weave Net Features]({{ '/overview/features' | relative_url }}).
 
 
 

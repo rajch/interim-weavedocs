@@ -115,7 +115,7 @@ and are discoverable by using standard, simple name lookups:
     host1$ docker run -ti weaveworks/ubuntu
     root@7b21498fb103:/# ping service
 
-WeaveDNS also supports [load balancing]({{ '/tasks/weavedns/load-balance-fault-weavedns.md' | relative_url }}), [fault resilience]({{ '/tasks/weavedns/load-balance-fault-weavedns' | relative_url }}) and [hot swapping]( {{ '/site/tasks/weavedns/managing-entries-weavedns' | relative_url }}). 
+WeaveDNS also supports [load balancing]({{ '/tasks/weavedns/load-balance-fault-weavedns' | relative_url }}), [fault resilience]({{ '/tasks/weavedns/load-balance-fault-weavedns' | relative_url }}) and [hot swapping]( {{ '/tasks/weavedns/managing-entries-weavedns' | relative_url }}). 
 
 See [Discovering Containers with WeaveDNS]({{ '/tasks/weavedns/weavedns' | relative_url }}).
  
@@ -176,7 +176,7 @@ running alongside Weave.
 Weave Net implements encryption and security using the Go version of [Daniel J.  Bernstein's NaCl library](http://nacl.cr.yp.to/index.html),
 and, additionally in the case of encrypted fast datapath using [the cryptography framework of the Linux kernel](https://en.wikipedia.org/wiki/Crypto_API_(Linux)).
 
-For information on how to secure your Docker network connections, see [Securing Connections Across Untrusted Networks]({{ '/tasks/manage/security-untrusted-networks.md' | relative_url }}) and for a more technical discussion on how Weave implements encryption see, [Weave Encryption]({{ '/concepts/encryption' | relative_url }}) and [How Weave Implements Encryption]({{ '/site/concepts/encryption-implementation' | relative_url }}).
+For information on how to secure your Docker network connections, see [Securing Connections Across Untrusted Networks]({{ '/tasks/manage/security-untrusted-networks' | relative_url }}) and for a more technical discussion on how Weave implements encryption see, [Weave Encryption]({{ '/concepts/encryption' | relative_url }}) and [How Weave Implements Encryption]({{ '/concepts/encryption-implementation' | relative_url }}).
 
 
 ### <a name="host-network-integration"></a>Host Network Integration

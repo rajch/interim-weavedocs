@@ -15,7 +15,7 @@ Install Weave Net from the command line on its own or if you are using Docker, K
 
 ## Weave Net Docker Plugin
 
-* [How the Weave Net Docker Network Plugins Work]({{ '/plugin/plugin-how-it-works/' | relative_url }})
+* [How the Weave Net Docker Network Plugins Work]({{ '/install/plugin/plugin-how-it-works/' | relative_url }})
 * [Integrating Docker via the Network Plugin (V2)]({{ '/install/plugin/plugin-v2/' | relative_url }})
      * [Installation]({{ '/install/plugin/plugin-v2/#installation' | relative_url }})
      * [Configuring the Plugin]({{ '/install/plugin/plugin-v2/#configuring' | relative_url }})
