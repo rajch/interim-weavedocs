@@ -27,7 +27,7 @@ Where,
 
  * The first line runs Weave Net. 
  * The second line configures the Weave Net environment, so that containers launched via the Docker command line are automatically attached to the Weave network, and, 
- * The third line runs the [application container]({{ '/faq#own-image) using [a Docker command](https://docs.docker.com/engine/reference/run/' | relative_url }}).
+ * The third line runs the [application container]({{ '/faq#own-image' | relative_url }}) using [a Docker command](https://docs.docker.com/reference/cli/docker/container/run/).
 
 > **Note** If the first command results in an error like
 > ```

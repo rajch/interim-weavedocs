@@ -11,8 +11,8 @@ The section describes the configuration options available in Weave Net. It is di
 
 
 * [Isolating Applications on a Weave Network]({{ '/tasks/manage/application-isolation/' | relative_url }})
-* [Dynamically Attaching and Detaching Applications]({{ '/tasks/dynamically-attach-containers/' | relative_url }})
-* [Integrating with the Host Network]({{ '/tasks/host-network-integration/' | relative_url }})
+* [Dynamically Attaching and Detaching Applications]({{ '/tasks/manage/dynamically-attach-containers/' | relative_url }})
+* [Integrating with the Host Network]({{ '/tasks/manage/host-network-integration/' | relative_url }})
 * [Managing Services - Exporting, Importing, Binding and Routing]({{ '/tasks/manage/service-management/' | relative_url }})
      * [Exporting Services]({{ '/tasks/manage/service-management/#exporting' | relative_url }})
      * [Importing Services]({{ '/tasks/manage/service-management/#importing' | relative_url }})

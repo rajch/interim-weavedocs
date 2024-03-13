@@ -80,7 +80,7 @@ or
     $ docker network connect mynetwork somecontainer
 
 Containers attached to different Docker Networks are
-[isolated through subnets]({{ '/using-weave/application-isolation/' | relative_url }}).
+[isolated through subnets]({{ '/tasks/manage/application-isolation/' | relative_url }}).
 
 
 ### <a name="restarting"></a>Restarting the Plugin
