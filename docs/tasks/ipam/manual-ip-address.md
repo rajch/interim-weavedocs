@@ -11,7 +11,7 @@ Containers are automatically allocated an IP address that is unique across the W
 
 Weave Net detects when a container has exited and releases its allocated addresses so they can be re-used by the network.
 
-See the [Automatic IP Address Management]({{ '/tasks/ipam/ipam.md) and also an explanation of [the basics of IP addressing](/site/concepts/ip-addresses' | relative_url }}) for further details.
+See the [Automatic IP Address Management]({{ '/tasks/ipam/ipam' | relative_url }}) and also an explanation of [the basics of IP addressing]({{ '/concepts/ip-addresses' | relative_url }}) for further details.
 
 Instead of allowing Weave Net to allocate IP addresses automatically (using IPAM), there may be instances where you need to control a particular container or a cluster by setting an IP address for it.  The way to do this varies according to how containers are attached to Weave Net.
 

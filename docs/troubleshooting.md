@@ -158,7 +158,7 @@ The columns are as follows:
    nickname for pending and established connections, mtu if known
 
 Specific error messages:
-* `IP allocation was seeded by different peers` - [more details here]({{ '/ipam/troubleshooting-ipam#seeded-different-peers' | relative_url }})
+* `IP allocation was seeded by different peers` - [more details here]({{ '/tasks/ipam/troubleshooting-ipam#seeded-different-peers' | relative_url }})
 
 ### <a name="weave-status-peers"></a>List Peers
 

@@ -38,3 +38,13 @@ Interim documentation for the ReWeave fork of Weave Net
     * docs/concepts/encryption-implementation.md (Not finished)
     * docs/troubleshooting.md
     * docs/building.md
+    * docs/concepts/index.md
+    * docs/install/index.md
+    * docs/install/installing-weave.md
+    * docs/kubernetes/kube-addon.md
+    * docs/tasks/index.md
+    * docs/tasks/ipam/manual-ip-address.md
+    * docs/tasks/weavedns/load-balance-fault-weavedns.md
+    * docs/tasks/weavedns/managing-domains-weavedns.md
+    * docs/troubleshooting.md
+

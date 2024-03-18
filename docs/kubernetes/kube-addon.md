@@ -252,7 +252,7 @@ has a detailed step-by-step guide.
 Once it is up and running, the status of Weave Net can be checked by
 running its CLI commands. This can be done in various ways:
 
-1\. [Install the `weave` script]({{ '/installing-weave' | relative_url }}) and run:
+1\. [Install the `weave` script]({{ '/install/installing-weave' | relative_url }}) and run:
 
 ```
 $ weave status

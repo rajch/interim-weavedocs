@@ -32,7 +32,7 @@ With Weave Net downloaded onto your VMs or hosts, you are ready to launch a Weav
 Weave Net [periodically contacts Weaveworks servers for available
 versions](https://github.com/weaveworks/go-checkpoint).  New versions
 are announced in the log and in [the status
-summary]({{ '/troubleshooting/#weave-status' | relative_url }}).
+summary]({{ '/troubleshooting#weave-status' | relative_url }}).
 
 The information sent in this check is:
 
@@ -60,7 +60,7 @@ optionally be enabled, which allows containers to communicate at the
 full speed of the underlying network.
 
 To make encryption in fast datapath work on Google Cloud Platform, see
-[here]({{ '/faq/#ports' | relative_url }}).
+[here]({{ '/faq#ports' | relative_url }}).
 
 **See Also** 
 

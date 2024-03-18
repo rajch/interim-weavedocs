@@ -54,6 +54,6 @@ container that is still alive.
 
 **See Also**
 
- * [How Weave Finds Containers]({{ '/how-works-weavedns' | relative_url }})
+ * [How Weave Finds Containers]({{ '/tasks/weavedns/how-works-weavedns' | relative_url }})
  * [Managing Domains]({{ '/tasks/weavedns/managing-domains-weavedns' | relative_url }})
  * [Managing Domain Entries]({{ '/tasks/weavedns/managing-entries-weavedns' | relative_url }})
