@@ -31,7 +31,7 @@ Finally, you can directly apply the manifest from our releases page:
 kubectl apply -f https://github.com/rajch/weave/releases/latest/download/weave-daemonset-k8s-1.11.yaml
 ```
 
-More details, and options can be found on the [kube add-ons]({{ '/kubernetes/kube-addon' | relative_url }}) page.
+More details, and options can be found on the [Integrating Kubernetes via the Addon]({{ '/kubernetes/kube-addon' | relative_url }}) page.
 
 ## All other uses, and more
 
