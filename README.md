@@ -48,4 +48,3 @@ Interim documentation for the ReWeave fork of Weave Net
     * docs/tasks/weavedns/managing-domains-weavedns.md
     * docs/troubleshooting.md
 
-Only the theme has to be finalized.
