@@ -47,4 +47,4 @@ Interim documentation for the ReWeave fork of Weave Net
     * docs/tasks/weavedns/load-balance-fault-weavedns.md
     * docs/tasks/weavedns/managing-domains-weavedns.md
     * docs/troubleshooting.md
-
+* Added a github actions workflow
