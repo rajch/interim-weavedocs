@@ -474,7 +474,7 @@ this is a recommended option in case you cannot be sure about the security of th
 
 A different option is to use `trusted-subnets` and whitelist only the subnets that host your k8s nodes. Mind that depending on your circumstances that might allow a malicious container running in your cluster to access the weave dataplane, still.
 
-Read on the [Securing Connections Across Untrusted Networks](/site/tasks/manage/security-untrusted-networks/) document to see the alternatives.
+Read on the [Securing Connections Across Untrusted Networks]({{ '/tasks/manage/security-untrusted-networks' | relative_url }}) document to see the alternatives.
 
 To improve security drop `CAP_NET_RAW` from pod capabilities: by default pods can forge packets from anywhere on the network, which enables attacks such as DNS spoofing.
 

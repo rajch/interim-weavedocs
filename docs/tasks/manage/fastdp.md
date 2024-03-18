@@ -73,4 +73,4 @@ frame" configuration:
 
  * [Launching Weave Net]({{ '/install/using-weave' | relative_url }})
  * [How Fastdp Works]({{ '/concepts/fastdp-how-it-works' | relative_url }})
- * [Performance measurements](/blog/weave-docker-networking-performance-fast-data-path/)
+ * [Performance measurements](https://web.archive.org/web/20231002233731/https://www.weave.works/blog/weave-docker-networking-performance-fast-data-path/)
