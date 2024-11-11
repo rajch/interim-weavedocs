@@ -32,7 +32,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs/
-          destination: ./_site/weave
+          destination: ./_site/interim-weavedocs
       - name: Set permissions
         run: |
           sudo chown -R $USER:$USER ./_site
@@ -42,12 +42,12 @@ jobs:
         with:
           node-version: '20.11'
       - name: Run Pitchfork indexing
-        run: npx -p @dropseed/pitchfork pitchfork index ./_site/ -c main && mv ./_site/search-index.json ./_site/weave/77
+        run: npx -p @dropseed/pitchfork pitchfork index ./_site/ -c main && mv ./_site/search-index.json ./_site/interim-weavedocs/
         shell: bash
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site/weave
+          path: ./_site/interim-weavedocs
 
   # Deployment job
   deploy:
