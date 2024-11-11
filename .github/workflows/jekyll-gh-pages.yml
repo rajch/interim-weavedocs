@@ -33,6 +33,10 @@ jobs:
         with:
           source: ./docs/
           destination: ./_site/weave
+      - name: Set permissions
+        run: |
+          sudo chown -R $USER:$USER ./_site
+          chmod -R 755 ./_site
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
