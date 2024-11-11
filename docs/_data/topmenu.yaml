@@ -13,3 +13,5 @@ menuitems:
     url: /operational-guide
   - title: Tasks
     url: /tasks
+  - title: search
+    url: /search

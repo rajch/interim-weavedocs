@@ -6,7 +6,7 @@ search_type: Documentation
 {% raw %}
 <input data-pitchfork-input type="text" placeholder="Search">
 <div data-pitchfork-results style="display: none;"
-     data-pitchfork-index-url="/weave/search-index.json">
+     data-pitchfork-index-url="/interim-weavedocs/search-index.json">
     <script type="x-tmpl-mustache">
     {{#results}}
     <a href="{{url}}">
