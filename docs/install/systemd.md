@@ -65,6 +65,5 @@ context with the commands shown below. You will need to have the
 **See Also**
 
  * [Launching Weave Net]({{ '/install/using-weave' | relative_url }})
- * [Tutorials](https://www.weave.works/docs/tutorials/)
  * [Features]({{ '/overview/features' | relative_url }})
  * [Troubleshooting]({{ '/troubleshooting' | relative_url }})

@@ -10,14 +10,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -35,9 +32,18 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs/
-          destination: ./_site
+          destination: ./_site/weave
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11'
+      - name: Run Pitchfork indexing
+        run: npx -p @dropseed/pitchfork pitchfork index ./_site/ -c main && mv ./_site/search-index.json ./_site/weave/77
+        shell: bash
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site/weave
 
   # Deployment job
   deploy:
